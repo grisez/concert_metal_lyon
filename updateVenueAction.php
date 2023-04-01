@@ -2,8 +2,8 @@
 require_once 'function/redirect.php';
 
 
-if (empty($_POST) || !isset($_POST['selectNameVenue']) || !isset($_POST['modifyNameVenue'])){
-    redirect('updateVenue.php');
+if (empty($_POST) || !isset($_POST['id_venue']) || !isset($_POST['modify_Name_Venue'])){
+    redirect('admin.php');
 }
 
 require_once 'db/pdo.php';
@@ -15,12 +15,11 @@ require_once 'classes/VenueCrud.php';
 $crud = new VenueCrud($pdo);
 
 // Je récupère les données de mon formulaire
-$modifyNameVenue = $_POST['modifyNameVenue'];
-$SelectNameVenue = $_POST['selectNameVenue'];
+$modifyNameVenue = $_POST['modify_Name_Venue'];
+$selectIdVenue = intval($_POST['id_venue']);
 
 
 // Je passe les données de mon formulaire à la méthode appropriée
-$modifyVenue = $crud->update($modifyNameVenue , $SelectNameVenue);
+$crud->update($modifyNameVenue , $selectIdVenue);
 
-
-redirect('admin.php');
+redirect('listVenue.php');

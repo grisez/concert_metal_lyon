@@ -9,6 +9,8 @@ class VenueCrud
         $this->pdo = $pdo;
     }
 
+
+    
     public function list(){
         $query = "SELECT * FROM venue ORDER BY id_venue ASC";
         $stmt = $this->pdo->prepare($query);

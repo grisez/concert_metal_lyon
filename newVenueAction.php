@@ -2,7 +2,7 @@
 require_once 'function/redirect.php';
 
 if (empty($_POST) || !isset($_POST['nameVenue'])) {
-    redirect('newVenue.php');
+    redirect('admin.php');
 }
 
 require_once 'db/pdo.php';
@@ -20,5 +20,5 @@ $nameVenue = $_POST['nameVenue'];
 // Je passe les données de mon formulaire à la méthode appropriée
 $newVenue = $crud->new($nameVenue);
 
-redirect('admin.php');
+redirect('listVenue.php');
 

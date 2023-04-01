@@ -32,9 +32,10 @@ if (empty($_POST) || !isset($_POST['email']) || !isset($_POST['password'])) {
     redirect('login.php?msg=' . ConnexionMessages::INVALID_PASSWORD);
   }
 
-  if ($user === false && password_verify($password, $hashedPassword) === false) {
-    redirect('login.php?msg=' . ConnexionMessages::INVALID_EMAIL . '&' . 'msg2='. ConnexionMessages::INVALID_PASSWORD);
-  }
+  //à voir plus tard
+  // if ($user === false && password_verify($password, $hashedPassword) === false) {
+  //   redirect('login.php?msg=' . ConnexionMessages::INVALID_EMAIL . '&' . 'msg='. ConnexionMessages::INVALID_PASSWORD);
+  // }
   
   $_SESSION['isConnected'] = true;
   redirect('index.php?msg=' . ConnexionMessages::CONNEXION_IS_VALID);
