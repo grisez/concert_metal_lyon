@@ -10,13 +10,20 @@ require_once 'layout/header.php'; ?>
 <section class='container'>
     <h1>Gestion</h1>
     <h2>Menu </h2>
+    <div class="row">
+        <div>
+            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listVenue.php">
+                Salles de concert
+            </a>
+        </div>
+        <div>
+            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listMusicGroup.php">
+                Groupes de musique 
+            </a>
+        </div>
 
-    <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listVenue.php">
-        Salles de concert
-    </a>
-    <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="list.php">
-        Style de musique 
-    </a>
+    </div>
+
 
 
 </section>

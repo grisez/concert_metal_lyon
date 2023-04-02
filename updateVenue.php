@@ -65,6 +65,4 @@ var_dump($row);
 </section>
 
 
-
-
 <?php require_once 'layout/footer.php'; ?>

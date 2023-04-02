@@ -1,14 +1,14 @@
 <?php
 
-$title="Modifier salle de concert";
+$title = "Modifier salle de concert";
 
 session_start();
-if (!isset($_SESSION['isConnected'])){
-    $_SESSION['isConnected']=false;
+if (!isset($_SESSION['isConnected'])) {
+    $_SESSION['isConnected'] = false;
 };
 
-require_once 'layout/header.php'; 
-require_once 'db/pdo.php';?>
+require_once 'layout/header.php';
+require_once 'db/pdo.php'; ?>
 
 <section class="container m-auto">
     <div>
@@ -23,8 +23,8 @@ require_once 'db/pdo.php';?>
                 <label for="floatingInput">Nom</label>
             </div>
     </div>
-            <button class="btn btn-outline-success colorButton my-2" type="submit">Validation</button>
-        </form>
+    <button class="btn btn-outline-success colorButton my-2" type="submit">Validation</button>
+    </form>
 </section>
 
 
@@ -32,4 +32,3 @@ require_once 'db/pdo.php';?>
 
 
 <?php require_once 'layout/footer.php'; ?>
-
