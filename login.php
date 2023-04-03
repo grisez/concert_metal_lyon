@@ -6,13 +6,13 @@ session_start();
 if (!isset($_SESSION['isConnected'])){
     $_SESSION['isConnected']=false;
 }
-require_once 'classes/ConnexionMessage.php';
+require_once 'classes/ConnexionMessages.php';
 require_once "layout/header.php"; ?>
 
 <section class='container'>
-        <?php if (array_key_exists('msg', $_GET)) { ?>
+        <?php if (array_key_exists('msgLogin', $_GET)) { ?>
         <div class="bg-dark text-danger w-25 rounded-3 text-center m-auto mb-2">
-            <?php echo ConnexionMessages::getConnexionMessage(intval($_GET['msg'])); ?>
+            <?php echo ConnexionMessages::getConnexionMessage(intval($_GET['msgLogin'])); ?>
         </div>
         <?php } ?> 
     </section>

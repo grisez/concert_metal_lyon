@@ -24,20 +24,20 @@ class MusicGroupCrud
     }
 
     public function rowMusicGroupById(int $id_musicGroup)
-{
-    $query = "SELECT musicgroup.*, style.*, country.id_country, country.name_country
+    {
+        $query = "SELECT musicgroup.*, style.*, country.id_country, country.name_country
         FROM l_musicgroup_style 
         JOIN musicgroup ON l_musicgroup_style.id_musicGroup = musicgroup.id_musicGroup
         JOIN style ON l_musicgroup_style.id_style = style.id_style
         JOIN country ON musicgroup.id_country = country.id_country  
         WHERE musicgroup.id_musicGroup = :id_musicGroup";
 
-    $stmt = $this->pdo->prepare($query);
-    $stmt->execute([
-        'id_musicGroup'=> $id_musicGroup,
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            'id_musicGroup' => $id_musicGroup,
         ]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function new(string $name_musicgroup, string $name_country, string $name_style)
     {
@@ -47,7 +47,7 @@ class MusicGroupCrud
             INSERT INTO l_musicgroup_style (id_musicGroup, id_style)
             -- last insert id = recupère le dernier id de la dernière requète --
             VALUES (LAST_INSERT_ID(), (SELECT id_style FROM style WHERE name_style = :name_style));";
-        
+
         $stmt = $this->pdo->prepare($query);
 
         $stmt->execute([
@@ -57,49 +57,34 @@ class MusicGroupCrud
         ]);
     }
 
-    public function update(int $id_musicGroup, string $name_musicGroup, string $name_country, string $name_style)
+    public function update(int $id_musicGroup, string $name_musicGroup, int $id_country, int $id_style)
     {
-        $query = "UPDATE musicgroup
-            SET";
-        $paramsStmt = [];
-
-        if (!empty($name_musicGroup)) {
-            $query .= " name_musicGroup = :name_musicGroup,";
-            $paramsStmt['name_musicGroup'] = $name_musicGroup;
-        }
-        if (!empty($name_country)) {
-            $query .= " id_country = (SELECT id_country FROM country WHERE name_country = :name_country),";
-            $paramsStmt['name_country'] = $name_country;
-        }
-
-        $query .= " WHERE id_musicgroup = :id_musicGroup";
-        $paramsStmt['id_musicGroup'] = $id_musicGroup;
-
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute($paramsStmt);
-
-        if (!empty($name_style)) {
-            $query = "INSERT INTO l_musicgroup_style (id_musicGroup, id_style)
-                VALUES (:id_musicGroup, (SELECT id_style FROM style WHERE name_style = :name_style))";
-            $paramsStmt = [
-                'id_musicGroup' => $id_musicGroup,
-                'name_style' => $name_style
-            ];
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute($paramsStmt);
-        }
-    }
-
-
-
-    public function delete(int $selectId): int
-    {
-        $query = "DELETE FROM Venue WHERE id_venue=:id";
+        $query = "UPDATE musicgroup SET name_musicGroup = :name_musicGroup , id_country = :id_country WHERE id_musicGroup = :id_musicGroup;
+        UPDATE l_musicgroup_style SET id_style = :id_style WHERE id_musicGroup = :id_musicGroup;";
+        
         $stmt = $this->pdo->prepare($query);
 
         $stmt->execute([
-            'id' => $selectId
+            'id_musicGroup' => $id_musicGroup,
+            'name_musicGroup' => $name_musicGroup,
+            'id_country' => $id_country,
+            'id_style' => $id_style
         ]);
-        return $stmt->rowCount();
     }
+
+    public function delete(int $id_musicGroup)
+    {
+        $query = "DELETE FROM l_musicgroup_style WHERE id_musicgroup = :id_musicGroup";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            'id_musicGroup' => $id_musicGroup
+        ]);
+
+        $query = "DELETE FROM musicgroup WHERE id_musicgroup = :id_musicGroup";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            'id_musicGroup' => $id_musicGroup
+        ]);
+    } 
 }
+

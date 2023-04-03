@@ -1,6 +1,6 @@
 <?php
 
-$title = "Modification groupe de musique";
+$title = "Suppression groupe de musique";
 
 session_start();
 if (!isset($_SESSION['isConnected'])) {
@@ -60,34 +60,20 @@ $stmtStyle = $pdo->query($queryStyle);
             </div>
         </div>
     </div>
-    <form action="updateMusicGroupAction.php" method="POST" class="col-md-6">
-        <div class="mb-3 w-50">
-            <input type="hidden" name="id_musicGroup" value="<?php echo $_GET['id_musicGroup'] ?>">
+    <div class="d-flex flex-row mb-3">
+        <p class="fs-4 text-danger me-3">Etes vous sur de vouloir supprimer ce groupe ? </p>
+        <div>
+            <a href="deleteMusicGroupAction.php?id_musicGroup=<?php echo $_GET['id_musicGroup'] ?>" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Oui</a>
         </div>
-        <h3 class="text-light mb-3">Que voulez vous modifier ? </h3>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control w-50" value="<?php echo $rowMusicGroup['name_musicGroup'] ?>" id="floatingInput" name="name_musicGroup" placeholder=" ">
-            <label for="floatingInput">Nom du groupe de musique</label>
+        <div>
+            <a href="listMusicGroup.php" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Non</a>
         </div>
-        <div class="form-group mb-3">
-            <select id="disabledSelect" name="id_country" class="form-select" >
-            <option selected value="<?php echo $rowMusicGroup['id_country']?>"><?php echo $rowMusicGroup['name_country']; ?></option>
-                <?php while ($rowCountry = $stmtCountry->fetch()) { ?>
-            <option value="<?php echo $rowCountry['id_country']?>"><?php echo $rowCountry['name_country'];?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="form-group mb-3">
-            <select id="disabledSelect" name="id_style" class="form-select">
-            <option selected value="<?php echo $rowMusicGroup['id_style']?>"><?php echo $rowMusicGroup['name_style']; ?></option>
-                <?php while ($rowStyle = $stmtStyle->fetch()) { ?>
-            <option value="<?php echo $rowStyle['id_style']?>"><?php echo $rowStyle['name_style'];?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <button class="btn btn-outline-success colorButton my-2" type="submit">Modifier</button>
-    </form>
+    </div>
 </section>
+
+
+
+
 
 
 <?php require_once 'layout/footer.php'; ?>

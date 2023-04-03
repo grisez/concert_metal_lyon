@@ -1,5 +1,4 @@
 <?php
-
 class ConnexionMessages
 {
     public const CONNEXION_IS_VALID = 1;

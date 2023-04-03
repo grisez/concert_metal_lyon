@@ -1,18 +1,25 @@
 <?php 
 $title="Accueil";
-require_once 'classes/ConnexionMessage.php';
+require_once 'classes/ConnexionMessages.php';
+require_once 'classes/RegisterMessages.php';
 
 session_start();
 if (!isset($_SESSION['isConnected'])){
     $_SESSION['isConnected']=false;
 };
 
-require_once 'layout/header.php';?>
+require_once 'layout/header.php'?>
+
 
     <section class='container'>
-        <?php if (array_key_exists('msg', $_GET)) { ?>
-        <div class="bg-dark text-success-emphasis w-25 rounded-3 text-center m-auto mb-2">
-            <?php echo ConnexionMessages::getConnexionMessage(intval($_GET['msg'])); ?>
+        <?php if (array_key_exists('msgLogin', $_GET)) { ?>
+        <div class="bg-dark text-success-emphasis w-25 rounded-3 text-center">
+            <?php echo ConnexionMessages::getConnexionMessage(intval($_GET['msgLogin'])); ?>
+        </div>
+        <?php } ?> 
+        <?php if (array_key_exists('msgRegister', $_GET)) { ?>
+        <div class="bg-dark text-success-emphasis w-25 rounded-3 text-center">
+            <?php echo RegisterMessages::getRegisterMessage(intval($_GET['msgRegister'])); ?>
         </div>
         <?php } ?> 
 

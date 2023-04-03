@@ -16,3 +16,4 @@ $selectIdVenue = intval($_GET['id_venue']);
 $crud->delete($selectIdVenue);
 
 redirect ('listeVenue.php');
+

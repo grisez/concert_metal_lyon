@@ -5,8 +5,17 @@ session_start();
 if (!isset($_SESSION['isConnected'])){
     $_SESSION['isConnected']=false;
 }
-
+require_once 'classes/RegisterMessages.php';
 require_once "layout/header.php"; ?>
+
+<section class='container'>
+    <?php if (array_key_exists('msgRegister', $_GET)) { ?>
+    <div class="bg-dark text-danger w-25 rounded-3 text-center m-auto mb-2">
+        <?php echo RegisterMessages::getRegisterMessage(intval($_GET['msgRegister'])); ?>
+    </div>
+    <?php } ?> 
+</section>
+
 <section class="container">
 <div class="formStyle">
     <div>
@@ -22,5 +31,6 @@ require_once "layout/header.php"; ?>
     </div>  
 </div>
 </section>
+
 
 <?php require_once 'layout/footer.php'; ?>

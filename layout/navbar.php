@@ -13,7 +13,7 @@
       </button>
     <div class="collapse navbar-collapse  justify-content-end px-5" id="navbarSupportedContent">
     <?php  
-        if (isset($_SESSION['email']) && $_SESSION['email']=='grisezcindy@gmail.com'){
+        if (isset($_SESSION['email']) && $_SESSION['email']=='admin@gmail.com'){
           echo '<li class="nav-item">';
           echo '<a class="nav-link text-light mx-5" href="admin.php">ADMIN</a>';
           echo '</li>';

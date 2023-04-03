@@ -53,12 +53,12 @@ $row = $stmt->fetch();
     </div>
     <div class="d-flex flex-row mb-3">
         <p class="fs-4 text-danger me-3">Etes vous sur de vouloir supprimer cette ligne ? </p>
-    <div>
-        <a href="deleteVenueAction.php?id_venue=<?php echo $_GET['id_venue'] ?>"class=" mx-2 btn btn-outline-success colorSecondButton my-2">Oui</a>
-    </div>
-    <div>
-        <a href="listVenue.php" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Non</a>
-    </div>
+        <div>
+            <a href="deleteVenueAction.php?id_venue=<?php echo $_GET['id_venue'] ?>" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Oui</a>
+        </div>
+        <div>
+            <a href="listVenue.php" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Non</a>
+        </div>
     </div>
 
 </section>
@@ -67,4 +67,3 @@ $row = $stmt->fetch();
 
 
 <?php require_once 'layout/footer.php'; ?>
-
