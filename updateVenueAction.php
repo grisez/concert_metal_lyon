@@ -1,13 +1,13 @@
 <?php
 require_once 'function/redirect.php';
+require_once 'db/pdo.php';
+require_once 'classes/VenueCrud.php';
 
 
 if (empty($_POST) || !isset($_POST['id_venue']) || !isset($_POST['modify_Name_Venue'])){
     redirect('admin.php');
 }
 
-require_once 'db/pdo.php';
-require_once 'classes/VenueCrud.php';
 
 // Je crée un objet
 // Instance de classe me permettant de réaliser des opérations de CRUD

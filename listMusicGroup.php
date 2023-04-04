@@ -6,15 +6,18 @@ if (!isset($_SESSION['isConnected'])){
     $_SESSION['isConnected']=false;
 };
 
-require_once 'layout/header.php';
 require_once 'db/pdo.php';
 require_once 'classes/MusicGroupCrud.php';
+require_once 'classes/CrudMessages.php';
+require_once 'layout/header.php';
 
 
 $crud = new MusicGroupCrud($pdo);
 $listMusicGroups = $crud->list();
 // var_dump($listMusicGroups);
 ?>
+
+
 
 <div class="container-fluid mt-5">
   <div class="row justify-content-between mb-3">
@@ -24,6 +27,13 @@ $listMusicGroups = $crud->list();
     <div class="col-md-2 me-3">
       <a href="newMusicGroup.php" class="btn btn-outline-success colorButton my-2">Ajouter un groupe</a>
     </div>
+  </div>
+  <div class='container'>
+        <?php if (array_key_exists('msgCrud', $_GET)) { ?>
+        <div class="bg-dark text-success-emphasis w-25 rounded-3 text-center m-auto mb-2">
+            <?php echo CrudMessages::getCrudMessage(intval($_GET['msgCrud'])); ?>
+        </div>
+        <?php } ?> 
   </div>
   <div class="row justify-content-center">
     <div class="col-lg-10">

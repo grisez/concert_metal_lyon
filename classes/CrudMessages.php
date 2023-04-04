@@ -7,7 +7,7 @@ class CrudMessages
     public const MODIFY_IS_VALID = 3;
     public const INVALID_FORM = 4;
 
-    public static function getRegisterMessage(int $code): string
+    public static function getCrudMessage(int $code): string
     {
         switch ($code) {
             case CrudMessages::ADD_IS_VALID:

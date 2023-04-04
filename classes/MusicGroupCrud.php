@@ -39,21 +39,22 @@ class MusicGroupCrud
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function new(string $name_musicgroup, string $name_country, string $name_style)
+    //a revoir
+    public function new(string $name_musicGroup, $id_country, int $id_style)
     {
         $query = "INSERT INTO musicgroup (name_musicGroup, id_country)
-            VALUES (:name_musicGroup, (SELECT id_country FROM country WHERE name_country = :name_country));
+            VALUES (:name_musicGroup,:id_country);
 
-            INSERT INTO l_musicgroup_style (id_musicGroup, id_style)
+            INSERT INTO l_musicgroup_style
             -- last insert id = recupère le dernier id de la dernière requète --
-            VALUES (LAST_INSERT_ID(), (SELECT id_style FROM style WHERE name_style = :name_style));";
+            VALUES (LAST_INSERT_ID(), :id_style);";
 
         $stmt = $this->pdo->prepare($query);
 
         $stmt->execute([
-            'name_musicGroup' => $name_musicgroup,
-            'name_country' => $name_country,
-            'name_style' => $name_style
+            'name_musicGroup' => $name_musicGroup,
+            'id_country' => $id_country,
+            'id_style' => $id_style
         ]);
     }
 

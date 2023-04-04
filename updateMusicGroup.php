@@ -70,6 +70,7 @@ $stmtStyle = $pdo->query($queryStyle);
             <label for="floatingInput">Nom du groupe de musique</label>
         </div>
         <div class="form-group mb-3">
+            <label for="disabledSelect" class="form-label">Choisissez le pays</label>
             <select id="disabledSelect" name="id_country" class="form-select" >
             <option selected value="<?php echo $rowMusicGroup['id_country']?>"><?php echo $rowMusicGroup['name_country']; ?></option>
                 <?php while ($rowCountry = $stmtCountry->fetch()) { ?>
@@ -78,6 +79,7 @@ $stmtStyle = $pdo->query($queryStyle);
             </select>
         </div>
         <div class="form-group mb-3">
+            <label for="disabledSelect" class="form-label">Choisissez le style</label>
             <select id="disabledSelect" name="id_style" class="form-select">
             <option selected value="<?php echo $rowMusicGroup['id_style']?>"><?php echo $rowMusicGroup['name_style']; ?></option>
                 <?php while ($rowStyle = $stmtStyle->fetch()) { ?>

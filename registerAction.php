@@ -3,6 +3,8 @@ require_once 'db/pdo.php';
 require_once 'function/redirect.php';
 require_once 'classes/RegisterMessages.php';
 
+// var_dump($_POST);
+
 if (empty($_POST) || !isset($_POST['lastName']) || !isset($_POST['firstName'])|| !isset($_POST['email'])
 || !isset($_POST['password'])) {
   redirect('index.php');

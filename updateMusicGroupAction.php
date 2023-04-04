@@ -1,14 +1,13 @@
 <?php
 require_once 'function/redirect.php';
-
-
-if (empty($_POST)){
-    redirect('admin.php');
-}
-//var_dump($_POST);
-
 require_once 'db/pdo.php';
 require_once 'classes/MusicGroupCrud.php';
+require_once 'classes/CrudMessages.php';
+
+if (empty($_POST) || !isset($_POST['name_musicGroup']) || !isset($_POST['id_country'])|| !isset($_POST['id_style'])) {
+    redirect('listMusicGroup.php');
+    }
+//var_dump($_POST);
 
 $crud = new MusicGroupCrud($pdo);
 
@@ -21,5 +20,4 @@ var_dump($id_musicGroup,$name_musicGroup,$id_country,$id_style);
 
 $crud->update($id_musicGroup, $name_musicGroup, $id_country, $id_style);
 
-
-redirect('listMusicGroup.php');
+redirect('listMusicGroup.php?msgCrud=' . CrudMessages::MODIFY_IS_VALID);
