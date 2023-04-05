@@ -1,4 +1,5 @@
 <?php
+require_once 'db/pdo.php';
 
 $title = "Modification salle de concert";
 
@@ -6,10 +7,6 @@ session_start();
 if (!isset($_SESSION['isConnected'])) {
     $_SESSION['isConnected'] = false;
 };
-
-require_once 'layout/header.php';
-require_once 'db/pdo.php';
-
 
 var_dump(intval($_GET['id_venue']));
 
@@ -22,6 +19,8 @@ $stmt->execute([
 ]);
 $row = $stmt->fetch();
 var_dump($row);
+
+require_once 'layout/header.php';
 ?>
 
 <section class="container m-auto">

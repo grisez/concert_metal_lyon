@@ -39,7 +39,6 @@ class MusicGroupCrud
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    //a revoir
     public function new(string $name_musicGroup, $id_country, int $id_style)
     {
         $query = "INSERT INTO musicgroup (name_musicGroup, id_country)

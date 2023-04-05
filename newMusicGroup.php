@@ -1,4 +1,7 @@
 <?php
+require_once 'db/pdo.php';
+require_once 'classes/MusicGroupCrud.php';
+require_once 'classes/CrudMessages.php';
 
 $title = "Ajouter un groupe";
 
@@ -7,17 +10,13 @@ if (!isset($_SESSION['isConnected'])) {
     $_SESSION['isConnected'] = false;
 };
 
-require_once 'layout/header.php';
-require_once 'db/pdo.php';
-require_once 'classes/MusicGroupCrud.php';
-require_once 'classes/CrudMessages.php';
-
-
 $queryCountry = "SELECT * FROM country ORDER BY name_country ASC";
 $stmtCountry = $pdo->query($queryCountry);
 
 $queryStyle = "SELECT * FROM style ORDER BY name_style ASC";
 $stmtStyle = $pdo->query($queryStyle);
+
+require_once 'layout/header.php';
 ?>
 
 

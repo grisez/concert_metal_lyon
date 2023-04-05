@@ -1,4 +1,6 @@
 <?php
+require_once 'db/pdo.php';
+require_once 'classes/MusicGroupCrud.php';
 
 $title = "Suppression groupe de musique";
 
@@ -7,9 +9,6 @@ if (!isset($_SESSION['isConnected'])) {
     $_SESSION['isConnected'] = false;
 };
 
-require_once 'layout/header.php';
-require_once 'db/pdo.php';
-require_once 'classes/MusicGroupCrud.php';
 
 
 $id_musicGroup = intval($_GET['id_musicGroup']);
@@ -26,7 +25,7 @@ $stmtCountry = $pdo->query($queryCountry);
 $queryStyle = "SELECT * FROM style ORDER BY name_style ASC";
 $stmtStyle = $pdo->query($queryStyle);
 
-
+require_once 'layout/header.php';
 ?>
 
 <section class="container m-auto">

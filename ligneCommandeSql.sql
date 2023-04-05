@@ -85,3 +85,28 @@ INSERT INTO l_musicgroup_style VALUES (149,78);
 INSERT INTO l_musicgroup_style VALUES (171,67);
 INSERT INTO l_musicgroup_style VALUES (8,7);
 INSERT INTO l_musicgroup_style VALUES (163,7);
+
+
+INSERT INTO venue VALUES (null, 'Rock N Eat');
+INSERT INTO venue VALUES (null, 'Le Transbordeur');
+INSERT INTO venue VALUES (null, 'Le farmer');
+INSERT INTO venue VALUES (null, 'CCO');
+INSERT INTO venue VALUES (null, 'Ninkasi Gerland/Kao');
+INSERT INTO venue VALUES (null, 'Le Troskon');
+INSERT INTO venue VALUES (null, 'Hard Rock Cafe');
+INSERT INTO venue VALUES (null, 'Warm Audio');
+INSERT INTO venue VALUES (null, 'La Boulangerie du Prado');
+INSERT INTO venue VALUES (null, 'Marché Gare');
+INSERT INTO venue VALUES (null, 'La Periscope');
+INSERT INTO venue VALUES (null, 'Halle Tony Garnier');
+INSERT INTO venue VALUES (null, 'Groupama Stadium');
+INSERT INTO venue VALUES (null, 'Amphithéâtre 3000');
+
+INSERT INTO l_event_musicgroup VALUES (16,1,1);
+INSERT INTO l_event_musicgroup VALUES (17,1,0);
+INSERT INTO l_event_musicgroup VALUES (9,2,1);
+INSERT INTO l_event_musicgroup VALUES (10,2,0);
+INSERT INTO l_event_musicgroup VALUES (11,2,0);
+INSERT INTO l_event_musicgroup VALUES (84,3,1);
+INSERT INTO l_event_musicgroup VALUES (14,4,1);
+INSERT INTO l_event_musicgroup VALUES (15,4,0);

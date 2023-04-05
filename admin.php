@@ -21,11 +21,12 @@ require_once 'layout/header.php'; ?>
                 Groupes de musique 
             </a>
         </div>
-
+        <div>
+            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listConcert.php">
+                Concerts
+            </a>
+        </div>
     </div>
-
-
-
 </section>
 
 <?php require_once 'layout/footer.php'; ?>

@@ -1,12 +1,13 @@
 
 <?php 
+require_once 'classes/ConnexionMessages.php';
 $title="Connexion";
 
 session_start();
 if (!isset($_SESSION['isConnected'])){
     $_SESSION['isConnected']=false;
 }
-require_once 'classes/ConnexionMessages.php';
+
 require_once "layout/header.php"; ?>
 
 <div class='container'>

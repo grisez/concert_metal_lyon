@@ -1,8 +1,9 @@
 
 <?php
-session_start();
 require_once 'function/redirect.php';
 require_once 'classes/ConnexionMessages.php';
+require_once 'db/pdo.php';
+session_start();
 
 if (isset($_POST['email'])) {
   $_SESSION['email'] = $_POST['email'];
@@ -12,7 +13,6 @@ if (empty($_POST) || !isset($_POST['email']) || !isset($_POST['password'])) {
   redirect('index.php');
 }
 
-require_once 'db/pdo.php';
 
 $login = $_POST['email'];
 $password = $_POST['password'];
