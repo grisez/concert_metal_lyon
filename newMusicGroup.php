@@ -19,8 +19,6 @@ $stmtStyle = $pdo->query($queryStyle);
 require_once 'layout/header.php';
 ?>
 
-
-
 <section class="container">
     <div class='container'>
         <?php if (array_key_exists('msgCrud', $_GET)) { ?>

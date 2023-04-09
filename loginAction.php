@@ -17,7 +17,7 @@ if (empty($_POST) || !isset($_POST['email']) || !isset($_POST['password'])) {
 $login = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "SELECT pwd_user FROM users WHERE mail_user=:mail_user";
+$query = "SELECT pwd_user, id_user FROM users WHERE mail_user=:mail_user";
 $stmt = $pdo->prepare($query);
 $stmt->execute(['mail_user' => $login]);
 
@@ -34,7 +34,10 @@ if (password_verify($password, $hashedPassword) === false) {
 }
 
 $_SESSION['isConnected'] = true;
+$_SESSION['id_user'] = $user['id_user'];
+
 redirect('index.php?msgLogin=' . ConnexionMessages::CONNEXION_IS_VALID);
+
 
 
 

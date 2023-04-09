@@ -1,30 +1,23 @@
-<?php 
-$title="Admin";
+<?php
+$title = "Admin";
 
 session_start();
-if (!isset($_SESSION['isConnected'])){
-    $_SESSION['isConnected']=false;
+if (!isset($_SESSION['isConnected'])) {
+    $_SESSION['isConnected'] = false;
 };
 require_once 'layout/header.php'; ?>
 
-<section class='container'>
-    <h1>Gestion</h1>
-    <h2>Menu </h2>
+<section class='container text-center'>
+    <h1 class="text-light">Gestionnaire</h1>
     <div class="row">
-        <div>
-            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listVenue.php">
-                Salles de concert
-            </a>
-        </div>
-        <div>
-            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listMusicGroup.php">
-                Groupes de musique 
-            </a>
-        </div>
-        <div>
-            <a class=" visualLink link-offset-2 link-underline link-underline-opacity-0" href="listConcert.php">
-                Concerts
-            </a>
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle w-50" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+            </button>
+            <ul class="dropdown-menu w-50">
+                <li><a class="dropdown-item" href="listConcertGroup.php">Concert</a></li>
+                <li><a class="dropdown-item" href="listMusicGroup.php">Groupes de musique</a></li>
+            </ul>
         </div>
     </div>
 </section>

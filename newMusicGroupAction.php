@@ -15,11 +15,23 @@ if (empty($_POST['name_musicGroup'])) {
     redirect('newMusicGroup.php?msgCrud=' . CrudMessages::INVALID_FORM);
 }
 
-$crud = new MusicGroupCrud($pdo);
-
 $name_musicGroup = $_POST['name_musicGroup'];
 $id_country = intval($_POST['id_country']);
 $id_style = intval($_POST['id_style']);
+
+$query = "SELECT name_musicGroup FROM musicgroup WHERE name_musicgroup = :name_musicGroup";
+$stmt = $pdo->prepare($query);
+$stmt->execute(['name_musicGroup' => $name_musicGroup]);
+
+$nameGroupSearchIfAlreadyexist = $stmt->fetch();
+// var_dump($nameSearchIfAlreadyexist);
+
+if (!empty($nameGroupSearchIfAlreadyexist)){
+redirect('newMusicGroup.php?msgCrud=' . CrudMessages::INVALID_NAME);
+}
+
+$crud = new MusicGroupCrud($pdo);
+
 
 $newMusicGroup = $crud->new($name_musicGroup, $id_country, $id_style);
 

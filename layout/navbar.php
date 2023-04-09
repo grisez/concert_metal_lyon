@@ -12,7 +12,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <div class="collapse navbar-collapse  justify-content-end px-5" id="navbarSupportedContent">
-    <?php  
+    <?php
+      //ajouter un colonne dans user en boolean 1 c'est admin et 0 c'est les autres user
         if (isset($_SESSION['email']) && $_SESSION['email']=='admin@gmail.com'){
           echo '<li class="nav-item">';
           echo '<a class="nav-link text-light mx-5" href="admin.php">ADMIN</a>';
