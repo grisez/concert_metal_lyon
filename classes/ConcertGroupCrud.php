@@ -80,20 +80,6 @@ class ConcertGroupCrud
             }
         }
 
-//     public function newLEventMusicgroup($musicGroup, int $headline_event)
-//     {
-//         $query = "INSERT INTO l_event_musicgroup
-//                 -- last insert id = recupère le dernier id de la dernière requète --
-//                 VALUES (:id_musicgroup,LAST_INSERT_ID(),:headline_event);";
-
-//         $stmt = $this->pdo->prepare($query);
-
-//         $stmt->execute([
-//             'id_musicGroup' => $musicGroup['id_musicGroup'],
-//             'headline_event' => $headline_event
-//         ]);
-// }
-
     public function updateEvents(int $id_event,string $name_event,int $date_event,string $img_event,int $price_event,int $id_venue) {
         $query = "UPDATE events SET name_event = :name_event , date_event = :date_event, img_event = :img_event, price_event = :price_event; id_venue = :ed_venue WHERE id_event = :id_event;
         UPDATE l_event_musicgroup SET id_musicGroup = :id_musicGroup WHERE id_event = :id_event;";

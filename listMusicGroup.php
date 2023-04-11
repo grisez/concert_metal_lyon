@@ -17,34 +17,35 @@ $listMusicGroups = $crud->list();
 require_once 'layout/header.php';
 ?>
 
-<div class="container-fluid mt-5">
-  <div class="row justify-content-between mb-3">
-    <div class="col-md-2 ms-3">
-    <a href="admin.php" class="btn btn-outline-success colorSecondButton my-2">Retour au menu</a>
-    </div>
-    <div class="col-md-2 me-3">
-      <a href="newMusicGroup.php" class="btn btn-outline-success colorButton my-2">Ajouter un groupe</a>
-    </div>
-  </div>
-  <div class='container'>
+  <div class='pt-5'>
         <?php if (array_key_exists('msgCrud', $_GET)) { ?>
-        <div class="bg-dark text-success-emphasis w-25 rounded-3 text-center m-auto mb-2">
+        <div class="m-auto shadow-lg bg-black bg-opacity-50 text-success w-25 rounded-2 p-2 text-center">
             <?php echo CrudMessages::getCrudMessage(intval($_GET['msgCrud'])); ?>
         </div>
         <?php } ?> 
   </div>
+
+<div class="container-fluid py-5">
+  <div class="row justify-content-between mb-3">
+    <div class="col-md-2 ms-3">
+    <a href="admin.php" class="btn btn-outline-success my-2">Retour au menu</a>
+    </div>
+    <div class="col-md-2 me-3">
+      <a href="newMusicGroup.php" class="btn btn-success my-2">Ajouter un groupe</a>
+    </div>
+  </div>
   <div class="row justify-content-center">
     <div class="col-lg-10">
-      <h2 class="text-center mb-4 text-light">Groupes de musique</h2>
+      <h2 class="text-center mb-4 text-secondary">Groupes de musique</h2>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped text-center">
-          <thead class="table-dark">
+        <table class="table text-center">
+          <thead class="text-light thead-dark bg-black bg-opacity-50 ">
             <tr>
-              <th>Image</th>
-              <th>Nom</th>
-              <th>Pays</th>
-              <th>Style de musique</th>
-              <th class="sizeColumnAction">Action</th>
+              <th>IMAGE</th>
+              <th>NOM</th>
+              <th>PAYS</th>
+              <th>STYLE DE MUSIQUE</th>
+              <th class="sizeColumnAction">ACTION</th>
             </tr>
           </thead>
           <tbody>

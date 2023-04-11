@@ -20,42 +20,43 @@ $listsMusicGroup = $stmtMusicGroup->fetchAll(PDO::FETCH_ASSOC);
 require_once 'layout/header.php';
 ?>
 
-<section class="container">
-    <div class='container'>
-        <?php if (array_key_exists('msgCrud', $_GET)) { ?>
-            <div class="bg-dark text-danger w-25 rounded-3 text-center m-auto mb-2">
-                <?php echo CrudMessages::getCrudMessage(intval($_GET['msgCrud'])); ?>
-            </div>
-        <?php } ?>
-    </div>
+<div class='pt-5'>
+    <?php if (array_key_exists('msgCrud', $_GET)) { ?>
+        <div class="m-auto shadow-lg bg-black bg-opacity-50 text-danger w-25 rounded-2 p-2 text-center">
+            <?php echo CrudMessages::getCrudMessage(intval($_GET['msgCrud'])); ?>
+        </div>
+    <?php } ?>
+</div>
+
+<section class="container mb-5">
     <div>
-        <a href="listConcertGroup.php" class="btn btn-outline-success colorSecondButton my-2">Retour liste</a>
-        <h2 class="text-light my-3">Ajouter un concert </h2>
+        <a href="listConcertGroup.php" class="btn btn-outline-success my-2">Retour liste</a>
+        <h2 class="my-3 text-secondary fs-3">Ajouter un concert </h2>
         <form action="newConcertGroupAction.php" method="POST" class="col-md-6">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control w-50" id="floatingInput" name="name_event" placeholder=" ">
                 <label for="floatingInput" class="form-label">Nom du concert</label>
-                <p class='text-warning'>Facultatif si pas de nom de concert alors la tête d'affiche fera office de nom de concert </p>
+                <p class='text-warning text-opacity-50 fs-6'>Facultatif si pas de nom de concert alors la tête d'affiche fera office de nom de concert </p>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Importer l'affiche de concert</label>
+                <label for="formFile" class="form-label fs-5">Importer l'affiche de concert</label>
                 <input class="form-control" name="img_event" type="file" id="formFile">
-                <p class='text-warning'>Facultatif si pas d'affiche alors nous afficherons une affiche type </p>
+                <p class='text-warning text-opacity-50 fs-6'>Facultatif si pas d'affiche alors nous afficherons une affiche type </p>
             </div>
             <div class="form-group mb-3 d-flex flex-column">
-                <label for="start" class="form-label">Date</label>
+                <label for="start" class="form-label fs-5">Date</label>
                 <input type="date" class="form-control" id="start" name="date_event" min="2023-04-06">
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label class="form-label">Prix</label>
+                <label class="form-label fs-5">Prix</label>
                 <div class="d-flex flex-row">
-                <input type="text" class="form-control" name="price_event" aria-label="Dollar amount (with dot and two decimal places)">
-                <span class="input-group-text">€</span>
+                    <input type="text" class="form-control" name="price_event" aria-label="Dollar amount (with dot and two decimal places)">
+                    <span class="input-group-text">€</span>
                 </div>
-                <p class='text-warning'>Facultatif</p>
+                <p class='text-warning text-opacity-50 fs-6'>Facultatif</p>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label">Choisissez un lieu</label>
+                <label for="disabledSelect" class="form-label fs-5">Choisissez un lieu</label>
                 <select id="disabledSelect" name="id_venue" class="form-select">
                     <?php while ($rowVenue = $stmtVenue->fetch()) { ?>
                         <option value="<?php echo $rowVenue['id_venue'] ?>"><?php echo $rowVenue['name_venue']; ?></option>
@@ -63,7 +64,7 @@ require_once 'layout/header.php';
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label">Choisissez le tête d'affiche</label>
+                <label for="disabledSelect" class="form-label fs-5">Choisissez le tête d'affiche</label>
                 <select id="disabledSelect" name="id_headlining" class="form-select">
                     <?php foreach ($listsMusicGroup as $listMusicGroup) { ?>
                         <option value="<?php echo $listMusicGroup['id_musicGroup'] ?>"><?php echo $listMusicGroup['name_musicGroup']; ?></option>
@@ -71,14 +72,14 @@ require_once 'layout/header.php';
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="select-multiple" class="form-label">Selectionnez les groupes de musique</label>
+                <label for="select-multiple" class="form-label fs-5">Selectionnez les groupes de musique</label>
                 <select multiple class="form-control" name="id_musicGroup[]" id="multipleSelectIdMusicGroup">
-                    <?php foreach ($listsMusicGroup as $listMusicGroup)  { ?>
+                    <?php foreach ($listsMusicGroup as $listMusicGroup) { ?>
                         <option value="<?php echo $listMusicGroup['id_musicGroup'] ?>"><?php echo $listMusicGroup['name_musicGroup']; ?></option>
                     <?php } ?>
                 </select>
             </div>
-            <button class="btn btn-outline-success colorButton my-2" type="submit">Ajouter</button>
+            <button class="btn btn-success colorButton my-2" type="submit">Ajouter</button>
         </form>
 </section>
 

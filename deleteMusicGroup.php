@@ -9,15 +9,12 @@ if (!isset($_SESSION['isConnected'])) {
     $_SESSION['isConnected'] = false;
 };
 
-
-
 $id_musicGroup = intval($_GET['id_musicGroup']);
 // $id_style = intval($_GET['id_style']);
 
 $crud = new MusicGroupCrud($pdo);
 $rowMusicGroup = $crud->rowMusicGroupById($id_musicGroup);
 
-var_dump($rowMusicGroup);
 
 $queryCountry = "SELECT * FROM country ORDER BY name_country ASC";
 $stmtCountry = $pdo->query($queryCountry);
@@ -28,22 +25,22 @@ $stmtStyle = $pdo->query($queryStyle);
 require_once 'layout/header.php';
 ?>
 
-<section class="container m-auto">
+<section class="container m-auto py-5">
     <div>
-        <a href="listMusicGroup.php" class="btn btn-outline-success colorSecondButton my-2">Retour à la liste</a>
+        <a href="listMusicGroup.php" class="btn btn-outline-success my-2">Retour à la liste</a>
     </div>
-    <h2 class="text-light mb-3">Modification de la ligne</h2>
+    <h2 class="text-secondary text-center mb-3">Modification de la ligne</h2>
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped text-center">
-                        <thead class="table-dark">
+                    <table class="table text-center">
+                        <thead class="text-light thead-dark bg-black bg-opacity-50">
                             <tr>
-                                <th>Image</th>
-                                <th>Nom</th>
-                                <th>Pays</th>
-                                <th>Style de musique</th>
+                                <th>IMAGE</th>
+                                <th>NOM</th>
+                                <th>PAYS</th>
+                                <th>STYLE DE MUSIQUE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,9 +57,9 @@ require_once 'layout/header.php';
         </div>
     </div>
     <div class="d-flex flex-row mb-3">
-        <p class="fs-4 text-danger me-3">Etes vous sur de vouloir supprimer ce groupe ? </p>
+        <p class="fs-5 text-danger me-3">Etes vous sur de vouloir supprimer ce groupe ? </p>
         <div>
-            <a href="deleteMusicGroupAction.php?id_musicGroup=<?php echo $_GET['id_musicGroup'] ?>" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Oui</a>
+            <a href="deleteMusicGroupAction.php?id_musicGroup=<?php echo $_GET['id_musicGroup'] ?>" class=" mx-2 btn btn-success colorSecondButton my-2">Oui</a>
         </div>
         <div>
             <a href="listMusicGroup.php" class=" mx-2 btn btn-outline-success colorSecondButton my-2">Non</a>

@@ -15,7 +15,6 @@ $id_musicGroup = intval($_GET['id_musicGroup']);
 $crud = new MusicGroupCrud($pdo);
 $rowMusicGroup = $crud->rowMusicGroupById($id_musicGroup);
 
-var_dump($rowMusicGroup);
 
 $queryCountry = "SELECT * FROM country ORDER BY name_country ASC";
 $stmtCountry = $pdo->query($queryCountry);
@@ -26,22 +25,22 @@ $stmtStyle = $pdo->query($queryStyle);
 require_once 'layout/header.php';
 ?>
 
-<section class="container m-auto">
+<section class="container m-auto py-5">
     <div>
-        <a href="listMusicGroup.php" class="btn btn-outline-success colorSecondButton my-2">Retour à la liste</a>
+        <a href="listMusicGroup.php" class="btn btn-outline-success my-2">Retour à la liste</a>
     </div>
-    <h2 class="text-light mb-3">Modification de la ligne</h2>
+    <h2 class="text-secondary text-center mb-3">Modification de la ligne</h2>
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped text-center">
-                        <thead class="table-dark">
+                    <table class="table text-center">
+                        <thead class="text-light thead-dark bg-black bg-opacity-50">
                             <tr>
-                                <th>Image</th>
-                                <th>Nom</th>
-                                <th>Pays</th>
-                                <th>Style de musique</th>
+                                <th>IMAGE</th>
+                                <th>NOM</th>
+                                <th>PAYS</th>
+                                <th>STYLE DE MUSIQUE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,7 +60,7 @@ require_once 'layout/header.php';
         <div class="mb-3 w-50">
             <input type="hidden" name="id_musicGroup" value="<?php echo $_GET['id_musicGroup'] ?>">
         </div>
-        <h3 class="text-light mb-3">Que voulez vous modifier ? </h3>
+        <h3 class="text-secondary fs-3 mb-3">Que voulez vous modifier ? </h3>
         <div class="form-floating mb-3">
             <input type="text" class="form-control w-50" value="<?php echo $rowMusicGroup['name_musicGroup'] ?>" id="floatingInput" name="name_musicGroup" placeholder=" ">
             <label for="floatingInput">Nom du groupe de musique</label>
@@ -84,7 +83,7 @@ require_once 'layout/header.php';
                 <?php } ?>
             </select>
         </div>
-        <button class="btn btn-outline-success colorButton my-2" type="submit">Modifier</button>
+        <button class="btn btn-success colorButton my-2" type="submit">Modifier</button>
     </form>
 </section>
 

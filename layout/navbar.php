@@ -1,8 +1,8 @@
 
-<nav class="navbar navbar-expand-lg mb-5">
-  <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid justify-content-between ms-4">
       <a class="navbar-brand text-light " href="index.php">
-        <svg width="100" height="100" viewBox="0 -2 385 187" ><g id="SvgjsG3535" featurekey="rootContainer" transform="matrix(1,0,0,1,2,-2)" fill="#2effc4">    
+        <svg width="75" height="50" viewBox="0 -2 385 187" ><g id="SvgjsG3535" featurekey="rootContainer" transform="matrix(1,0,0,1,2,-2)" fill="#2effc4">    
         <path xmlns="http://www.w3.org/2000/svg" fill-rule="nonzero" d="M0,0 H383 V185 H0,0 z M4,4 v177 h375 v-177 z"></path></g><g id="SvgjsG3536" featurekey="symbolFeature-0" transform="matrix(1.188021542420484,0,0,1.188021542420484,132.92654490254807,2.7754773508014594)" fill="#42cc99">
         <path xmlns="http://www.w3.org/2000/svg" d="M93.62,21.86A29.06,29.06,0,0,0,85.39,14a29.72,29.72,0,0,0-10-4,29,29,0,0,0-18.48,2.45,26.91,26.91,0,0,0-10.57,9.38c-.3.46,0,1.18.67,1.58s1.26.39,1.54,0a26.61,26.61,0,0,1,10-7.41,25.86,25.86,0,0,1,15.82-1.33,25.56,25.56,0,0,1,8.2,3.53A24.79,24.79,0,0,1,93,33.75,24.45,24.45,0,0,1,82.67,59.34l-2.2,1.4c-.79.52-1.55,1.06-2.3,1.63a34.38,34.38,0,0,0-4.11,3.74,31.88,31.88,0,0,0-3.35,4.29c-.49.75-.94,1.53-1.35,2.29a21.9,21.9,0,0,0-1.13,2.46c-.32.82-.59,1.64-.82,2.45l-.32,1.2c-.1.3-.17.61-.27.9a10.49,10.49,0,0,1-7.65,6.75A10.67,10.67,0,0,1,53,86a11.72,11.72,0,0,1-4.42-3c-.3-.33-1-.25-1.64.21a1.12,1.12,0,0,0-.45,1.46A13.75,13.75,0,0,0,59.86,90.3a14.36,14.36,0,0,0,8.43-4.49,14.68,14.68,0,0,0,2.82-4.47c.17-.42.3-.86.45-1.3l.33-1c.23-.69.48-1.37.76-2a17.53,17.53,0,0,1,1-1.9c.39-.66.78-1.28,1.21-1.9a27.77,27.77,0,0,1,2.93-3.53,30.18,30.18,0,0,1,3.57-3.1c.64-.47,1.31-.93,2-1.36l2.28-1.4a29.56,29.56,0,0,0,8-41.92Z"></path>
         <path xmlns="http://www.w3.org/2000/svg" d="M76.07,48.63c-.3.24-.58.4-.92.64L74,50a41.57,41.57,0,0,0-4.14,3.16,32.14,32.14,0,0,0-6.13,7A26.23,26.23,0,0,0,60.66,67c-.12.41.39.92,1.11,1.13s1.25.11,1.4-.2A30.38,30.38,0,0,1,72.59,56.5a41.49,41.49,0,0,1,3.89-2.61l1.06-.61c.38-.23.86-.49,1.26-.78a16.17,16.17,0,0,0,2.39-2,16.48,16.48,0,0,0,4.93-11.86A16.82,16.82,0,0,0,67.27,22.07a19,19,0,0,0-12.05,6.22,19.29,19.29,0,0,0-3.55,5.66,15.56,15.56,0,0,0-1.06,6.56v.1a2.49,2.49,0,0,0,3.16,2.24h0l.09,0a2.23,2.23,0,0,0,.57-.25,4.55,4.55,0,0,1,2.91-.66A4.63,4.63,0,0,1,60,43.16a4.73,4.73,0,0,1,1,5.24,4.89,4.89,0,0,1-1.63,2.06l-2.8,1.91c-1.81,1.23-3.42,2.36-4.8,3.36-.33.24-.26,1,.17,1.62h0c.38.58.92.9,1.26.73,1.53-.77,3.27-1.68,5.19-2.71l1.48-.8.76-.42.39-.21.44-.26a8.72,8.72,0,0,0,3.28-3.48,9,9,0,0,0,1-5.13A9.17,9.17,0,0,0,63.36,40a9.3,9.3,0,0,0-5.28-2.86,9.13,9.13,0,0,0-2-.1,10.49,10.49,0,0,1,.39-1.06,14.47,14.47,0,0,1,2.66-4,13.89,13.89,0,0,1,8.69-4.37,11.74,11.74,0,0,1,8.21,21.11Z"></path>
@@ -20,17 +20,17 @@
           echo '</li>';
         }
     ?>
-    <li class="nav-item">
-      <a class="nav-link text-light" href="concertList.php">CONCERT</a>
+    <li class="nav-item mx-5">
+      <a class="nav-link text-light" href="concertList.php">CONCERTS</a>
     </li>
-      <li class="nav-item dropdown mx-5">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#ffffff" class="bi bi-person-circle" viewBox="0 0 16 16">
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
         <?php 
         echo '<li><a class="dropdown-item" ';
           if ($_SESSION['isConnected']=== true){
@@ -42,10 +42,6 @@
         }?>
         </ul>
       </li>
-      <form class="d-flex" role="search">
-        <input class="form-control my-2 colorSearch" type="search" placeholder="..." aria-label="Search">
-        <button class="btn btn-outline-success colorButton my-2" type="submit">Ok</button>
-      </form>
     </div>
   </div>
 </nav>

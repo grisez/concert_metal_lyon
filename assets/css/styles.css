@@ -1,10 +1,11 @@
 /* General  ---------------------------------------------- */
 
 body {
-    background-image: url(../img/back.webp); 
+    background-image: url(../img/back.webp);
+    background-attachment: fixed, scroll;
     width: 100%;
+    margin-top: 75px;
 }
-
 
 
 /* navbar----------- */
@@ -12,59 +13,45 @@ li {
     list-style-type: none;
 }
 
-
-
-/* button ----------- */
-.colorButton{
-    -webkit-box-shadow:0px 0px 7px 1px rgba(45,255,196,0.8);
-    -moz-box-shadow: 0px 0px 7px 1px rgba(45,255,196,0.8);
-    box-shadow: 0px 0px 7px 1px rgba(45,255,196,0.8);
-    background-color :#24a781;
-    color : white;
-    border : none;
+.navbar {
+    background-color: rgba(2, 2, 2, 0.397);
+    transition: 300ms ease-in-out;
 }
 
-.colorButton:hover{
-    -webkit-box-shadow:0px 0px 10px 3px rgba(41, 233, 179, 0.8);
-    -moz-box-shadow: 0px 0px 10px 3px rgba(41, 233, 179, 0.8);
-    box-shadow: 0px 0px 10px px rgba(41, 233, 179, 0.8);
-    background-color :rgb(44, 216, 167);
-    color : white;
-    border : none;
-}
-
-.colorSecondButton{
-    color:rgba(12, 158, 117, 0.8);
-    background-color:white;
-}
-
-.colorSearch{
-    -webkit-box-shadow:0px 0px 7px 1px rgba(45,255,196,0.8);
-    -moz-box-shadow: 0px 0px 7px 1px rgba(45,255,196,0.8);
-    box-shadow: 0px 0px 7px 1px rgba(45,255,196,0.8);
-}
-
-/* login ---------------------------------------------- */
-
-.formStyle{
-    margin: auto;
-    width: 40vw;
-    height: 50vh;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
-    box-sizing: border-box;
-    border: 0.4px solid rgba(46, 255, 196, 0.302);  
-    border-radius: 15px;
-}
-
-.visualLink{
-    text-decoration: none;
-    color:rgba(45,255,196,0.8);
-}
+.navbar.scrolled {
+    background-color:rgba(0, 0, 0, 0.575);
+    backdrop-filter: blur(4px);
+    transition: 300ms ease-in-out;
+} 
 
 
 /* array for crud ---------------------------------------------- */
 .sizeColumnAction {
     width: 10%;
+}
+
+/* carousel ---------------------------------------------- */
+.hSize{
+    height: 88vh;
+}
+
+
+.hSizeArrayPicture{
+    height: 15vh;
+}
+
+.img-fluid {
+    object-position:top;
+}
+
+/* msg index  */
+.positionAbsolute{
+    position: absolute;
+    top: 20%; left: 50%;
+}
+
+.backgroundTable{
+    background-color: rgba(0, 0, 0, 0.486);
+    border-radius: 15px;
+    padding: 15px;
 }
