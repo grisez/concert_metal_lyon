@@ -18,10 +18,10 @@ class CrudMessages
                 return "Ajouter avec succès !";
                 break;
             case CrudMessages::REMOVE_IS_VALID:
-                return "Suppression pris en compte";
+                return "Suppression prise en compte";
                 break;
             case CrudMessages::MODIFY_IS_VALID:
-                return "Modification pris en compte";
+                return "Modification prise en compte";
                 break;
             case CrudMessages::INVALID_FORM:
                 return "Veuillez remplir tout les champs";
@@ -30,7 +30,7 @@ class CrudMessages
                 return "Date obligatoire";
                 break;
             case CrudMessages::INVALID_DUPLICATE:
-                return "Un groupe est déja sélectionné dans tête d'affiche";
+                return "Ce groupe est déja sélectionné dans tête d'affiche";
                 break;
             case CrudMessages::INVALID_GROUP:
                 return "impossible de valider cette requête un ou plusieurs groupe(s) est (sont) déja mentionné(s) à cette date";

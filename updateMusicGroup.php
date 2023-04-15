@@ -62,7 +62,7 @@ require_once 'layout/header.php';
         </div>
         <h3 class="text-secondary fs-3 mb-3">Que voulez vous modifier ? </h3>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control w-50" value="<?php echo $rowMusicGroup['name_musicGroup'] ?>" id="floatingInput" name="name_musicGroup" placeholder=" ">
+            <input type="text" class="form-control w-50" value="<?php echo $rowMusicGroup['name_musicGroup']?>" id="floatingInput" name="name_musicGroup" placeholder=" ">
             <label for="floatingInput">Nom du groupe de musique</label>
         </div>
         <div class="form-group mb-3">
@@ -86,6 +86,5 @@ require_once 'layout/header.php';
         <button class="btn btn-success colorButton my-2" type="submit">Modifier</button>
     </form>
 </section>
-
 
 <?php require_once 'layout/footer.php'; ?>

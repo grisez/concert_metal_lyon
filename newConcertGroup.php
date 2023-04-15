@@ -29,7 +29,6 @@ require_once 'layout/header.php';
 </div>
 
 <section class="container mb-5">
-    <div>
         <a href="listConcertGroup.php" class="btn btn-outline-success my-2">Retour liste</a>
         <h2 class="my-3 text-secondary fs-3">Ajouter un concert </h2>
         <form action="newConcertGroupAction.php" method="POST" class="col-md-6">
@@ -39,16 +38,16 @@ require_once 'layout/header.php';
                 <p class='text-warning text-opacity-50 fs-6'>Facultatif si pas de nom de concert alors la tête d'affiche fera office de nom de concert </p>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label fs-5">Importer l'affiche de concert</label>
+                <label for="formFile" class="form-label fs-5 fw-bold">Importer l'affiche de concert</label>
                 <input class="form-control" name="img_event" type="file" id="formFile">
-                <p class='text-warning text-opacity-50 fs-6'>Facultatif si pas d'affiche alors nous afficherons une affiche type </p>
+                <p class='text-warning text-opacity-50 fs-6'>Facultatif</p>
             </div>
             <div class="form-group mb-3 d-flex flex-column">
-                <label for="start" class="form-label fs-5">Date</label>
-                <input type="date" class="form-control" id="start" name="date_event" min="2023-04-06">
+                <label for="start" class="form-label fs-5 fw-bold">Date</label>
+                <input type="date" class="form-control" id="start" name="date_event" min="<?php echo date("Y-m-d"); ?>">
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label class="form-label fs-5">Prix</label>
+                <label class="form-label fs-5 fw-bold">Prix</label>
                 <div class="d-flex flex-row">
                     <input type="text" class="form-control" name="price_event" aria-label="Dollar amount (with dot and two decimal places)">
                     <span class="input-group-text">€</span>
@@ -56,7 +55,7 @@ require_once 'layout/header.php';
                 <p class='text-warning text-opacity-50 fs-6'>Facultatif</p>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label fs-5">Choisissez un lieu</label>
+                <label for="disabledSelect" class="form-label fs-5 fw-bold">Choisissez un lieu</label>
                 <select id="disabledSelect" name="id_venue" class="form-select">
                     <?php while ($rowVenue = $stmtVenue->fetch()) { ?>
                         <option value="<?php echo $rowVenue['id_venue'] ?>"><?php echo $rowVenue['name_venue']; ?></option>
@@ -64,7 +63,7 @@ require_once 'layout/header.php';
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label fs-5">Choisissez le tête d'affiche</label>
+                <label for="disabledSelect" class="form-label fs-5 fw-bold">Choisissez le tête d'affiche</label>
                 <select id="disabledSelect" name="id_headlining" class="form-select">
                     <?php foreach ($listsMusicGroup as $listMusicGroup) { ?>
                         <option value="<?php echo $listMusicGroup['id_musicGroup'] ?>"><?php echo $listMusicGroup['name_musicGroup']; ?></option>
@@ -72,7 +71,7 @@ require_once 'layout/header.php';
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="select-multiple" class="form-label fs-5">Selectionnez les groupes de musique</label>
+                <label for="select-multiple" class="form-label fs-5 fw-bold">Selectionnez les groupes de musique</label>
                 <select multiple class="form-control" name="id_musicGroup[]" id="multipleSelectIdMusicGroup">
                     <?php foreach ($listsMusicGroup as $listMusicGroup) { ?>
                         <option value="<?php echo $listMusicGroup['id_musicGroup'] ?>"><?php echo $listMusicGroup['name_musicGroup']; ?></option>
@@ -82,7 +81,5 @@ require_once 'layout/header.php';
             <button class="btn btn-success colorButton my-2" type="submit">Ajouter</button>
         </form>
 </section>
-
-
 
 <?php require_once 'layout/footer.php'; ?>

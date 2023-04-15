@@ -35,7 +35,7 @@ require_once 'layout/header.php';
                 <label for="floatingInput">Nom du groupe de musique</label>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label fs-5">Choisissez le pays</label>
+                <label for="disabledSelect" class="form-label fs-5 fw-bold">Choisissez le pays</label>
                 <select id="disabledSelect" name="id_country" class="form-select">
                     <?php while ($rowCountry = $stmtCountry->fetch()) { ?>
                         <option value="<?php echo $rowCountry['id_country'] ?>"><?php echo $rowCountry['name_country']; ?></option>
@@ -43,7 +43,7 @@ require_once 'layout/header.php';
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="disabledSelect" class="form-label fs-5">Choisissez le style de musique</label>
+                <label for="disabledSelect" class="form-label fs-5 fw-bold">Choisissez le style de musique</label>
                 <select id="disabledSelect" name="id_style" class="form-select">
                     <?php while ($rowStyle = $stmtStyle->fetch()) { ?>
                         <option value="<?php echo $rowStyle['id_style'] ?>"><?php echo $rowStyle['name_style']; ?></option>

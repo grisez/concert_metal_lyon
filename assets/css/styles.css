@@ -4,7 +4,7 @@ body {
     background-image: url(../img/back.webp);
     background-attachment: fixed, scroll;
     width: 100%;
-    margin-top: 75px;
+    margin-top: 12vh;
 }
 
 
@@ -14,12 +14,12 @@ li {
 }
 
 .navbar {
-    background-color: rgba(2, 2, 2, 0.397);
+    background-color: rgba(2, 2, 2, 0);
     transition: 300ms ease-in-out;
 }
 
 .navbar.scrolled {
-    background-color:rgba(0, 0, 0, 0.575);
+    background-color:rgba(0, 0, 0, 0.466);
     backdrop-filter: blur(4px);
     transition: 300ms ease-in-out;
 } 
@@ -38,6 +38,10 @@ li {
 
 .hSizeArrayPicture{
     height: 15vh;
+}
+
+.hSizeArrayPictureConcertList{
+    height: 30vh;
 }
 
 .img-fluid {

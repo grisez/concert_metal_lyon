@@ -45,7 +45,6 @@ class MusicGroupCrud
             VALUES (:name_musicGroup,:id_country);
 
             INSERT INTO l_musicgroup_style
-            -- last insert id = recupère le dernier id de la dernière requète --
             VALUES (LAST_INSERT_ID(), :id_style);";
 
         $stmt = $this->pdo->prepare($query);

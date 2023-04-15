@@ -1,5 +1,6 @@
 <?php
 require_once 'db/pdo.php';
+require_once 'function/crud.php';
 require_once 'classes/ConcertGroupCrud.php';
 require_once 'classes/CrudMessages.php';
 
@@ -13,20 +14,7 @@ if (!isset($_SESSION['isConnected'])) {
 $crud = new ConcertGroupCrud($pdo);
 $listConcertGroups = $crud->list();
 
-$headlineMusicGroup = '';
-function getHeadlineGroup($pdo, &$headlineMusicGroup)
-{
-  $query = "SELECT musicgroup.name_musicGroup 
-      FROM l_event_musicgroup 
-      JOIN musicgroup ON musicgroup.id_musicGroup = l_event_musicgroup.id_musicGroup 
-      WHERE l_event_musicgroup.headline_event = 1 ORDER BY events.date_event";
 
-  $stmt = $pdo->prepare($query);
-  $stmt->execute();
-  $headlineMusicGroup = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-getHeadlineGroup($pdo, $headlineMusicGroup);
 require_once 'layout/header.php';
 ?>
 <div class='pt-5'>
@@ -51,14 +39,14 @@ require_once 'layout/header.php';
       <h2 class="text-center mb-4 text-secondary">Concerts</h2>
       <div class="table-responsive">
         <table class="table texte-center">
-          <thead class="text-light thead-dark bg-black bg-opacity-50 ">
+          <thead class="text-light thead-dark bg-black bg-opacity-50">
             <tr>
               <th>AFFICHE</th>
               <th>NOM DU CONCERT</th>
               <th>DATE</th>
               <th>PRIX</th>
               <th>LIEU</th>
-              <th>GROUPES DE MUSIQUE</th>
+              <th class="w-25">GROUPES DE MUSIQUE</th>
               <th class="sizeColumnAction" scope="col">Action</th>
             </tr>
           </thead>
@@ -71,18 +59,24 @@ require_once 'layout/header.php';
                       <img class="" src="./assets/img/concert_rock_metal_little.png" alt="affiche par default">
                     </div>
                   <?php } else { ?>
-                    <div class="h-50">
+                    <div class="hSizeArrayPicture">
                       <img src="./assets/img/ <?php echo $listConcertGroup['img_event']; ?>" alt="affiche du concert">
                     </div>
                   <?php } ?>
                 </td>
                 <td class="text-light">
                   <?php 
-                  if ($listConcertGroup['name_event'] == null) {
+                  $id_event = $listConcertGroup['id_event'];
+                  $headlineMusicGroup = getHeadlineGroup($pdo, $id_event);
+                  $countOfMusicGroup = countOfMusicGroup($pdo, $id_event);
+                  if (is_null($listConcertGroup['name_event']) && ($countOfMusicGroup == 1)){
                     echo $headlineMusicGroup['name_musicGroup'];
+                  }else if (is_null($listConcertGroup['name_event']) && ($countOfMusicGroup > 1)){
+                    echo $headlineMusicGroup['name_musicGroup'] . " + guest";
                   } else {
-                    echo $listConcertGroup['name_event'];
-                  } ?>
+                  echo $listConcertGroup['name_event'];
+                }
+                  ?>
                 </td>
                 <td class="text-light"><?php echo $listConcertGroup['NewDate_event'] ?></td>
                 <td class="text-light">
@@ -90,7 +84,8 @@ require_once 'layout/header.php';
                     echo ("/");
                   } else {
                     echo $listConcertGroup['price_event'] . " € ";
-                  } ?></td>
+                  } ?>
+                  </td>
                 <td class="text-light"><?php echo $listConcertGroup['name_venue'] ?></td>
                 <td class="text-light"><?php echo $listConcertGroup['musicGroups'] ?></td>
                 <td>

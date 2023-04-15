@@ -40,7 +40,7 @@ require_once 'layout/header.php';
                                 <th>IMAGE</th>
                                 <th>NOM</th>
                                 <th>PAYS</th>
-                                <th>STYLE DE MUSIQUE</th>
+                                <th>Style de musique</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +57,7 @@ require_once 'layout/header.php';
         </div>
     </div>
     <div class="d-flex flex-row mb-3">
-        <p class="fs-5 text-danger me-3">Etes vous sur de vouloir supprimer ce groupe ? </p>
+        <p class="fs-4 text-danger me-3">Etes vous sur de vouloir supprimer ce groupe ? </p>
         <div>
             <a href="deleteMusicGroupAction.php?id_musicGroup=<?php echo $_GET['id_musicGroup'] ?>" class=" mx-2 btn btn-success colorSecondButton my-2">Oui</a>
         </div>
