@@ -9,7 +9,10 @@ class MusicGroupCrud
         $this->pdo = $pdo;
     }
 
-    public function list()
+  /**
+ * @return array
+ */
+public function list(): array
     {
         $query = "SELECT musicgroup.*, style.*, country.id_country, country.name_country
         FROM l_musicgroup_style 
@@ -23,7 +26,12 @@ class MusicGroupCrud
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function rowMusicGroupById(int $id_musicGroup)
+    /**
+    * @param int 
+    *
+    * @return array|null 
+     */
+    public function rowMusicGroupById(int $id_musicGroup):?array
     {
         $query = "SELECT musicgroup.*, style.*, country.id_country, country.name_country
         FROM l_musicgroup_style 
@@ -36,10 +44,10 @@ class MusicGroupCrud
         $stmt->execute([
             'id_musicGroup' => $id_musicGroup,
         ]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC)?: null;
     }
 
-    public function new(string $name_musicGroup, $id_country, int $id_style)
+    public function new(string $name_musicGroup, $id_country, int $id_style): void
     {
         $query = "INSERT INTO musicgroup (name_musicGroup, id_country)
             VALUES (:name_musicGroup,:id_country);
@@ -56,7 +64,7 @@ class MusicGroupCrud
         ]);
     }
 
-    public function update(int $id_musicGroup, string $name_musicGroup, int $id_country, int $id_style)
+    public function update(int $id_musicGroup, string $name_musicGroup, int $id_country, int $id_style):void
     {
         $query = "UPDATE musicgroup SET name_musicGroup = :name_musicGroup , id_country = :id_country WHERE id_musicGroup = :id_musicGroup;
         UPDATE l_musicgroup_style SET id_style = :id_style WHERE id_musicGroup = :id_musicGroup;";
@@ -71,7 +79,7 @@ class MusicGroupCrud
         ]);
     }
 
-    public function delete(int $id_musicGroup)
+    public function delete(int $id_musicGroup):void
     {
         $query = "DELETE FROM l_musicgroup_style WHERE id_musicgroup = :id_musicGroup";
         $stmt = $this->pdo->prepare($query);

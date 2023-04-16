@@ -36,10 +36,6 @@ function searchIfSameEventDateAccordingMusicGroupForUpdate(string $date_event, i
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
-
-
 function getHeadlineGroup(PDO $pdo, int $id_event)
 {
     $query = "SELECT musicgroup.name_musicGroup,l_event_musicgroup.id_musicGroup FROM l_event_musicgroup 

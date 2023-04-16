@@ -9,7 +9,10 @@ class ConcertGroupCrud
         $this->pdo = $pdo;
     }
 
-    public function list()
+    /**
+    * @return array
+    */
+    public function list():array
     {
         $query = "SELECT events.*,DATE_FORMAT(events.date_event, '%d %M %Y') 
         as NewDate_event, venue.*, GROUP_CONCAT(musicgroup.name_musicGroup SEPARATOR ', ') 
@@ -24,8 +27,12 @@ class ConcertGroupCrud
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
-    public function rowEventGroupById(int $id_event)
+        /**
+    * @param int 
+    *
+    * @return array|null 
+     */
+    public function rowEventGroupById(int $id_event):?array
     {
         $query = "SELECT events.*,DATE_FORMAT(events.date_event, '%d %M %Y') 
         as NewDate_event, venue.*, GROUP_CONCAT(musicgroup.name_musicGroup SEPARATOR ', ') 
@@ -42,8 +49,8 @@ class ConcertGroupCrud
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    //faire un tableau pour les paramètres de la méthode
-    public function newEvent(mixed $name_event, string $date_event, mixed $img_event, mixed $price_event, int $id_venue)
+    // amélioration faire un tableau pour les paramètres de la méthode
+    public function newEvent(mixed $name_event, string $date_event, mixed $img_event, mixed $price_event, int $id_venue):void
     {
         $query = "INSERT INTO events
             VALUES (null,:name_event,:date_event, :img_event, :price_event,:id_venue);";
@@ -60,7 +67,7 @@ class ConcertGroupCrud
 
     }
 
-    public function newLEventMusicgroups(array $musicGroups)
+    public function newLEventMusicgroups(array $musicGroups):void
         {
             $stmt = $this->pdo->query("SELECT LAST_INSERT_ID()");
             $last_id_event = $stmt->fetchColumn();
@@ -80,23 +87,7 @@ class ConcertGroupCrud
             }
         }
 
-    // public function updateEvent(int $id_event,mixed $name_event,int $date_event,mixed $img_event,mixed $price_event,int $id_venue) {
-    //     $query = "UPDATE events SET name_event = :name_event , date_event = :date_event, img_event = :img_event, price_event = :price_event; id_venue = :ed_venue WHERE id_event = :id_event;
-    //     UPDATE l_event_musicgroup SET id_musicGroup = :id_musicGroup WHERE id_event = :id_event;";
-
-    //     $stmt = $this->pdo->prepare($query);
-
-    //     $stmt->execute([
-    //         'id_event' => $id_event,
-    //         'name_event' => $name_event,
-    //         'date-event' => $date_event,
-    //         'img_event' => $img_event,
-    //         'price_event' => $price_event,
-    //         'id_venue' => $id_venue
-    //     ]);
-    // }
-
-    public function delete(int $id_event)
+    public function delete(int $id_event):void
     {
         $query = "DELETE FROM l_event_musicgroup WHERE id_event = :id_event;
         DELETE FROM events WHERE id_event = :id_event;";
